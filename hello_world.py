@@ -1,2 +1,5 @@
 print("Hello Candra Burhanudin")
-print("Saya berasal dari Indonesia")
+c = 1
+n = 3
+c+=n
+print(c)
