@@ -17,7 +17,7 @@ RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension inst
 WORKDIR /app
 
 # Copy the notebook file into the container
-COPY src/data.ipynb /app/data.ipynb
+COPY ../app/src/data.ipynb /app/data.ipynb
 
 # Expose the Jupyter Notebook port
 EXPOSE 8888
