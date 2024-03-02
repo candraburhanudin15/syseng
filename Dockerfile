@@ -18,6 +18,9 @@ RUN apt-get update && \
 # Install Jupyter and Jupyter SQL extension
 RUN pip install jupyter
 
+# Install Jupyter and Jupyter SQL extension
+RUN pip install jupyterlab
+
 # Make port 8888 available to the world outside this container
 EXPOSE 8888
 
