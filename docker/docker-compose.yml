@@ -1,31 +1,35 @@
 version: '3'
-
 services:
-  mysql:
-    image: mysql:latest
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: belajar_docker
-      MYSQL_USER: 
-      MYSQL_PASSWORD: 
-
   python-jupyter:
-    build: .
+    build:
+      context: ../
+      dockerfile: syseng/docker/Dockerfile
     ports:
       - "8888:8888"
     volumes:
-      - ./notebooks:/app/notebooks
-    depends_on:
-      - mysql
+      - ./app/src:/app
     environment:
-      MYSQL_HOST: mysql
+      - MYSQL_ROOT_PASSWORD=password123
+      - MYSQL_DATABASE=my_database
+      - MYSQL_USER=user1
+      - MYSQL_PASSWORD=user123
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: user123
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    ports:
-      - "8080:80"
+    container_name: phpmyadmin
     environment:
       PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_ROOT_PASSWORD: password123
+    ports:
+      - "8080:80"
