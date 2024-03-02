@@ -13,6 +13,10 @@ RUN apt-get update && apt-get install -y mysql-client
 # Install the Jupyter extension for executing SQL code in Jupyter cells
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user && jupyter nbextension enable execute_time/ExecuteTime && jupyter nbextension enable codefolding/main && jupyter nbextension enable collapsible_headings/main
 
+# Install dependencies
+COPY app/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
 # Set working directory
 WORKDIR /app
 
