@@ -23,6 +23,6 @@ jobs:
         uses : docker/build-push-action@v4
         with: 
           context : .
-          file: ./syseng/dockerfile
+          file: dockerfile
           push : true 
           tags : candraburhanudin15/testrepo_syseng:latest
