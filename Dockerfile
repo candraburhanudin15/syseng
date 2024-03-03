@@ -11,10 +11,10 @@ RUN apt-get update && \
     pip install mysql-connector-python
 
 # Copy the requirements file into the container
-COPY app/requirements.txt .
+COPY . .
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r app/requirements.txt
 
 # Expose port 8888 to the outside world
 EXPOSE 8888
