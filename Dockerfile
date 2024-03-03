@@ -6,8 +6,9 @@ WORKDIR /app
 
 # Install necessary packages
 RUN apt-get update && \
-    apt-get install -y python3-mysql-connector default-libmysqlclient-dev && \
-    pip install --no-cache-dir jupyterlab
+    apt-get install -y default-libmysqlclient-dev && \
+    pip install --no-cache-dir jupyterlab && \
+    pip install mysql-connector-python
 
 # Copy the requirements file into the container
 COPY app/requirements.txt .
