@@ -5,12 +5,12 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_mysql_user
-      MYSQL_PASSWORD: your_mysql_password
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: coba_docker
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: 123
     ports:
-      - "3306:3306"
+      - "3030:3030"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
